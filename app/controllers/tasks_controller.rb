@@ -1,6 +1,15 @@
+TASKS = ['Wedge luv Biggs', 'Play sum Blitzball', 'Yuffie waz here']
 class TasksController < ApplicationController
-  TASKS = ['Wedge luv Biggs', 'Play sum Blitzball', 'Yuffie waz here']
   def index
     @tasks = TASKS
   end
+
+  def show
+    task_id = params[:id].to_i
+    @task = TASKS[task_id]
+    if @book.nil?
+      head :not_found
+    end
+  end
+
 end
