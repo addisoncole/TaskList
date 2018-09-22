@@ -1,8 +1,11 @@
-<h1>Tasks</h1>
+<div>
+<h1>TO-DO LIST</h1>
+<%= link_to "[New]", new_task_path %>
 <ul>
-  <% @tasks.each do |task|  %>
+  <% @tasks.each do |task| %>
     <li>
-      <%= task %>
+      <%= task.id %>. TO DO: <%= task.action %> DESCRIPTION:<%= task.description %> BY: <%= task.assignee %>
     </li>
-  <% end %>
+    <% end %>
 </ul>
+</div>
