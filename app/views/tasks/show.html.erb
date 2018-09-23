@@ -1,5 +1,18 @@
-<h1>Show Task</h1>
+<h1><%= @task.action %></h1>
 
-<p>
-  <%= @task.id %>. TO DO: <%= @task.action %> DESCRIPTION:<%= @task.description %> BY: <%= @task.assignee %>
-</p>
+<ul>
+  <li>
+    <div>
+      <p>
+        <strong><%= @task.action %></strong>
+      </p>
+      <p>
+        <strong>DESCRIPTION: </strong><%= @task.description %>
+      </p>
+      <p>
+        <strong>BY: </strong><%= @task.assignee %>
+      </p>
+    </div>
+  </li>
+  <%= link_to "[Return to List]", tasks_path %>
+</ul>

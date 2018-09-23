@@ -1,11 +1,31 @@
 <div>
-<h1>TO-DO LIST</h1>
-<%= link_to "[New]", new_task_path %>
-<ul>
-  <% @tasks.each do |task| %>
+  <h1>TO-DO LIST</h1>
+  <ul>
+    <% count = 1 %>
+    <% @tasks.each do |task| %>
     <li>
-      <%= task.id %>. TO DO: <%= task.action %> DESCRIPTION:<%= task.description %> BY: <%= task.assignee %>
+      <div>
+        <p>
+          <strong><%= count %>. <%= task.action %></strong>
+        </p>
+        <p>
+          <strong>DESCRIPTION: </strong><%= task.description %>
+        </p>
+        <p>
+          <strong>BY: </strong><%= task.assignee %>
+        </p>
+      </div>
+      <div class="edit-task-links">
+        <%= link_to "[Mark as Complete]" %>
+        <%= link_to "[View Details]", task_path(task.id) %>
+        <%= link_to "[Edit]", edit_task_path(task.id) %>
+        <%= link_to "[Delete]", task_path(task.id), method: :delete, data: { confirm: "Are you sure you want to delete the task #{task.action}?" } %>
+      </div>
+      <% count += 1 %>
     </li>
     <% end %>
-</ul>
+    <div class='new-task'>
+      <%= link_to "[Add Task]", new_task_path %>
+    </div>
+  </ul>
 </div>

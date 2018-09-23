@@ -1,0 +1,9 @@
+<h2>Edit Task</h2>
+
+<div class='edit-task-form'>
+  <%= render partial: "task_form", locals: {
+    action_type: "Save Edit",
+    form_title: "Edit #{@task.action}"
+  }
+  %>
+</div>
