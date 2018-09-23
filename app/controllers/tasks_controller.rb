@@ -51,6 +51,10 @@ class TasksController < ApplicationController
     redirect_to tasks_path
   end
 
+  def mark_as_complete
+    
+  end
+
   private
 
   def task_params
