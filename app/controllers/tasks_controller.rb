@@ -51,8 +51,16 @@ class TasksController < ApplicationController
     redirect_to tasks_path
   end
 
-  def mark_as_complete
-    
+  def toggle_complete
+    @task = Task.find_by(id: params[:id])
+    if @task.completed == false
+      @task.completed = true
+      @task.save
+    else
+      @task.completed = false
+      @task.save
+    end
+    redirect_to tasks_path
   end
 
   private
@@ -61,7 +69,7 @@ class TasksController < ApplicationController
     return params.require(:task).permit(
       :action,
       :description,
-      :completion_date,
+      :completed,
       :assignee
     )
   end
