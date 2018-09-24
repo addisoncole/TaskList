@@ -17,7 +17,7 @@
         </p>
         </div>
         <div class="completed-edit-task-links">
-          <%= link_to "[Mark as Complete]", task_toggle_complete_path(task.id), method: :update %>
+          <%= link_to "[Mark as Incomplete]", task_toggle_complete_path(task.id), method: :update %>
           <%= link_to "[View Details]", task_path(task.id) %>
           <%= link_to "[Edit]", edit_task_path(task.id) %>
           <%= link_to "[Delete]", task_path(task.id), method: :delete, data: { confirm: "Are you sure you want to delete the task #{task.action}?" } %>
